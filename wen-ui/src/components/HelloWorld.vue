@@ -16,7 +16,9 @@
         <wen-checkbox label="2">备选项</wen-checkbox>
         <wen-checkbox label="3">备选项</wen-checkbox>
       </wen-checkbox-group>
+      <wen-input></wen-input>
     </div>
+    <div style="height: 2000px;"></div>
   </div>
 </template>
 <script>
@@ -26,6 +28,7 @@ import wenRadioButton from './common/wenRadioButton'
 import wenRadioGroup from './common/wenRadioGroup'
 import wenCheckbox from './common/wenCheckbox'
 import wenCheckboxGroup from './common/wenCheckboxGroup'
+import wenInput from './common/wenInput'
 export default{
   components: {
     wenButton,
@@ -33,14 +36,15 @@ export default{
     wenRadioGroup,
     wenRadioButton,
     wenCheckbox,
-    wenCheckboxGroup
+    wenCheckboxGroup,
+    wenInput
   },
   data () {
     return {
       radio: '',
       radio2: 0,
       check: true,
-      checkbox: [2, 3]
+      checkbox: []
     }
   }
 }

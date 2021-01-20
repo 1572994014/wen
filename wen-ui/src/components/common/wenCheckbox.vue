@@ -25,7 +25,7 @@
 <script>
 export default{
   props: {
-    value: {},
+    value: [],
     label: {},
     name: String,
     disabled: {
@@ -44,17 +44,6 @@ export default{
   },
   methods: {
     change () {
-      let parent = this.$parent
-      let name = parent.$options.componentName
-      while (parent && (!name || name !== 'CheckboxGroup')) {
-        parent = parent.$parent
-        if (parent) {
-          name = parent.$options.componentName
-        }
-      }
-      if (parent) {
-        parent.$emit('change', [this.label])
-      }
     }
   },
   computed: {
@@ -75,7 +64,21 @@ export default{
         return this.isGroup ? this._checkboxGroup.value : this.value
       },
       set (val) {
-        this.$emit('input', val)
+        if (this.isGroup) {
+          let parent = this.$parent
+          let name = parent.$options.componentName
+          while (parent && (!name || name !== 'CheckboxGroup')) {
+            parent = parent.$parent
+            if (parent) {
+              name = parent.$options.componentName
+            }
+          }
+          if (parent) {
+            parent.$emit('input', val)
+          }
+        } else {
+          this.$emit('input', val)
+        }
       }
     }
   }
