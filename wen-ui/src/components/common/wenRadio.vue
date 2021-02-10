@@ -16,10 +16,10 @@
 </style>
 <template>
   <label class="radio-label" :class="{'radio-label-border': border}">
-    <input 
-    type="radio" 
-    v-model="model" 
-    :value="label" 
+    <input
+    type="radio"
+    v-model="model"
+    :value="label"
     :disabled="disabled"
     @change="change"
     />
@@ -42,11 +42,11 @@ export default{
       default () {
         return false
       }
-    } 
+    }
   },
   data () {
     return {
-      _radioGroup: {}
+      radioGroup: {}
     }
   },
   methods: {
@@ -71,7 +71,7 @@ export default{
         if (parent.$options.componentName !== 'RadioGroup') {
           parent = parent.$parent
         } else {
-          this._radioGroup = parent
+          this.radioGroup = parent
           return true
         }
       }
@@ -79,7 +79,7 @@ export default{
     },
     model: {
       get () {
-        return this.isGroup ? this._radioGroup.value : this.value
+        return this.isGroup ? this.radioGroup.value : this.value
       },
       set (val) {
         this.$emit('input', val)

@@ -39,7 +39,7 @@ export default{
   },
   data () {
     return {
-      _checkboxGroup: {}
+      checkboxGroup: {}
     }
   },
   methods: {
@@ -47,21 +47,21 @@ export default{
     }
   },
   computed: {
-    isGroup() {
-        let parent = this.$parent;
-        while (parent) {
-          if (parent.$options.componentName !== 'CheckboxGroup') {
-            parent = parent.$parent;
-          } else {
-            this._checkboxGroup = parent;
-            return true;
-          }
+    isGroup () {
+      let parent = this.$parent
+      while (parent) {
+        if (parent.$options.componentName !== 'CheckboxGroup') {
+          parent = parent.$parent
+        } else {
+          this.checkboxGroup = parent
+          return true
         }
-        return false;
-      },
+      }
+      return false
+    },
     model: {
       get () {
-        return this.isGroup ? this._checkboxGroup.value : this.value
+        return this.isGroup ? this.checkboxGroup.value : this.value
       },
       set (val) {
         if (this.isGroup) {

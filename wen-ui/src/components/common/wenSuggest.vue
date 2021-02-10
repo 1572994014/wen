@@ -18,14 +18,14 @@ export default{
       dom: {}
     }
   },
-  mounted() {
+  mounted () {
     document.body.appendChild(this.$el)
     this.dom = this.$parent.$el.getBoundingClientRect()
-     console.log(this.$parent.$el)
+    console.log(this.$parent.$el)
     window.addEventListener('scroll', () => {
       // this.dom = this.$parent.$el.getBoundingClientRect()
       // console.log(this.$parent.$el.getBoundingClientRect())
-    });
+    })
   }
 }
 </script>

@@ -17,11 +17,11 @@
 <script>
 import wenSuggest from './wenSuggest'
 export default{
-  components:{
+  components: {
     wenSuggest
   },
   mounted () {
-    window.addEventListener('scroll', this.handleScrollx);
+    window.addEventListener('scroll', this.handleScrollx)
   },
   methods: {
     handleScrollx () {
