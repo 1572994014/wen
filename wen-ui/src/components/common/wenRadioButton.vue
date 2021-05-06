@@ -75,7 +75,7 @@ export default{
         if (parent.$options.componentName !== 'RadioGroup') {
           parent = parent.$parent
         } else {
-          this.set(this, 'radioGroup', parent)
+          this.$set(this, 'radioGroup', parent)
           return true
         }
       }

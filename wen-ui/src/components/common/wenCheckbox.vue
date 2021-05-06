@@ -53,7 +53,7 @@ export default{
         if (parent.$options.componentName !== 'CheckboxGroup') {
           parent = parent.$parent
         } else {
-          this.checkboxGroup = parent
+          this.$set(this, 'checkboxGroup', parent)
           return true
         }
       }

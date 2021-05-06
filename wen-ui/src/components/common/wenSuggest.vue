@@ -3,6 +3,7 @@
     position: absolute;
     left: 0;
     top: 0;
+    border: 1px solid #dcdfe6;
   }
 </style>
 <template>
@@ -20,12 +21,12 @@ export default{
   },
   mounted () {
     document.body.appendChild(this.$el)
-    this.dom = this.$parent.$el.getBoundingClientRect()
-    console.log(this.$parent.$el)
-    window.addEventListener('scroll', () => {
-      // this.dom = this.$parent.$el.getBoundingClientRect()
-      // console.log(this.$parent.$el.getBoundingClientRect())
-    })
+    // this.dom = this.$parent.$el.getBoundingClientRect()
+    // console.log(this.$parent.$el)
+    // window.addEventListener('scroll', () => {
+    //   this.dom = this.$parent.$el.getBoundingClientRect()
+    //  console.log(this.$parent.$el.getBoundingClientRect())
+    // })
   }
 }
 </script>
