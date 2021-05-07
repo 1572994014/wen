@@ -3,6 +3,7 @@
     border: 1px solid #dcdfe6;
     box-sizing: border-box;
     height: 40px;
+    width: 200px;
     line-height: 40px;
     padding: 0 15px;
     border-radius: 4px;

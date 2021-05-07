@@ -1,5 +1,8 @@
+<style scoped>
+</style>
 <template>
   <div>
+    <div style="height: 500px;"></div>
     <wen-button>{{checkbox}}</wen-button>
     <div>
       <wen-radio-group v-model="radio">
