@@ -1,5 +1,6 @@
 <style scoped>
   .suggest-controller{
+    left: 0;
     padding: 10px;
   }
   .suggest-border{

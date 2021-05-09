@@ -17,10 +17,10 @@
   }
 </style>
 <template>
-  <div class="input-main">
-    <input type="text" ref="input">
-    <wen-suggest ref="test" v-if="false"/>
-  </div>
+    <div type="text" class="select">
+        <input type="text" placeholder="请选择" readonly="true"  ref="input" @focus="focus" @blur="show = false"/>
+        <wen-suggest ref="test" v-show="show"/>
+    </div>
 </template>
 <script>
 import wenSuggest from './wenSuggest'
@@ -29,6 +29,12 @@ export default{
   components: {
     wenSuggest
   },
+  data () {
+    return {
+      show: false,
+      popperJs: null
+    }
+  },
   mounted () {
     window.addEventListener('scroll', this.handleScrollx)
     console.log(this.$refs['test'].$el)
@@ -36,9 +42,23 @@ export default{
     let tooltip = this.$refs['test'].$el
     console.log(popcorn)
     console.log(tooltip)
-    createPopper(popcorn, tooltip)
+    this.popperJs = createPopper(popcorn, tooltip, {
+      placement: 'bottom',
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 8]
+          }
+        }
+      ]
+    })
   },
   methods: {
+    focus () {
+      this.show = true
+      this.popperJs.update()
+    }
   }
 }
 </script>
