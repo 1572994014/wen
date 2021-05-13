@@ -2,27 +2,7 @@
 </style>
 <template>
   <div>
-    <div style="height: 500px;"></div>
-    <wen-button>{{checkbox}}</wen-button>
-    <div>
-      <wen-radio-group v-model="radio">
-        <wen-radio label="1" :border="true">选项1</wen-radio>
-        <wen-radio label="2">选项2</wen-radio>
-      </wen-radio-group>
-      <wen-radio-group v-model="radio">
-        <wen-radio-button label="1">选项1</wen-radio-button>
-        <wen-radio-button label="2">选项2</wen-radio-button>
-        <wen-radio-button label="3">选项3</wen-radio-button>
-      </wen-radio-group>
-      <wen-checkbox v-model="check">{{check}}</wen-checkbox>
-      <wen-checkbox-group v-model="checkbox">
-        <wen-checkbox label="2">备选项</wen-checkbox>
-        <wen-checkbox label="3">备选项</wen-checkbox>
-      </wen-checkbox-group>
-      <wen-input></wen-input>
-      <wen-select></wen-select>
-    </div>
-    <div style="height: 2000px;"></div>
+      <wen-switch></wen-switch>
   </div>
 </template>
 <script>
@@ -34,6 +14,7 @@ import wenCheckbox from './common/wenCheckbox'
 import wenCheckboxGroup from './common/wenCheckboxGroup'
 import wenInput from './common/wenInput'
 import wenSelect from './common/wenSelect'
+import wenSwitch from './common/wenSwitch'
 export default{
   components: {
     wenButton,
@@ -43,7 +24,8 @@ export default{
     wenCheckbox,
     wenCheckboxGroup,
     wenInput,
-    wenSelect
+    wenSelect,
+    wenSwitch
   },
   data () {
     return {
