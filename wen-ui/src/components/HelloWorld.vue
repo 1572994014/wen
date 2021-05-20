@@ -3,6 +3,7 @@
 <template>
   <div>
       <wen-switch></wen-switch>
+      <wen-slider></wen-slider>
   </div>
 </template>
 <script>
@@ -15,6 +16,7 @@ import wenCheckboxGroup from './common/wenCheckboxGroup'
 import wenInput from './common/wenInput'
 import wenSelect from './common/wenSelect'
 import wenSwitch from './common/wenSwitch'
+import wenSlider from './common/wenSlider'
 export default{
   components: {
     wenButton,
@@ -25,7 +27,8 @@ export default{
     wenCheckboxGroup,
     wenInput,
     wenSelect,
-    wenSwitch
+    wenSwitch,
+    wenSlider
   },
   data () {
     return {
