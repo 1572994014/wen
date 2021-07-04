@@ -79,9 +79,6 @@ export default {
     mousemove (e) {
       if (this.status) {
         this.endX = e.clientX
-        // this.left = (this.endX - this.startX) + 'px'
-        // console.log(e.clientX)
-        // console.log('鼠标滑动')
       }
     },
     mouseover () {
