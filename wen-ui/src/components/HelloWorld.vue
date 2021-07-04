@@ -4,6 +4,7 @@
   <div>
       <wen-switch></wen-switch>
       <wen-slider></wen-slider>
+      <wen-time-picker></wen-time-picker>
   </div>
 </template>
 <script>
@@ -17,6 +18,7 @@ import wenInput from './common/wenInput'
 import wenSelect from './common/wenSelect'
 import wenSwitch from './common/wenSwitch'
 import wenSlider from './common/wenSlider'
+import wenTimePicker from './common/wenTimePicker'
 export default{
   components: {
     wenButton,
@@ -28,7 +30,8 @@ export default{
     wenInput,
     wenSelect,
     wenSwitch,
-    wenSlider
+    wenSlider,
+    wenTimePicker
   },
   data () {
     return {
