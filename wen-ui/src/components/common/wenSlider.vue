@@ -19,10 +19,10 @@
     border: 2px solid #409ef4;
     box-sizing: border-box;
   }
-  .slider-round:hover{
+  /* .slider-round:hover{
     width: 23px;
     height: 23px;
-  }
+  } */
   .slider-progress{
     width: 100%;
     height: 5px;
@@ -32,7 +32,7 @@
 <template>
   <div class="slider" ref="slider">
     <div class="slider-progress"></div>
-    <div class="slider-round" @mouseover="mouseover" @mousedown="mousedown" @mousemove="mousemove" :style="{'left': left}"></div>
+    <div class="slider-round" @mouseover="mouseover" @mousedown="mousedown" @mousemove="mousemove" :style="moveButtons"></div>
   </div>
 </template>
 <script>
@@ -42,15 +42,39 @@ export default {
       status: false,
       startX: 0,
       endX: 0,
-      left: 0
+      left: 0,
+      value: 0,
+      startValue: 0
     }
   },
   methods: {
-    mousedown (e) {
-      this.startX = e.clientX
+    onDragging (e) {
+      if (!this.status) return
+      this.endX = e.clientX / (500) * 100
+      this.value = this.endX - this.startX + this.startValue
+      this.value = this.value >= 100 ? 100 : this.value
+      this.value = this.value <= 0 ? 0 : this.value
+    },
+    onDragEnd (e) {
+      console.log('end')
+      this.status = false
+      window.removeEventListener('mousemove', this.onDragging)
+      window.removeEventListener('touchmove', this.onDragging)
+      window.removeEventListener('mouseup', this.onDragEnd)
+      window.removeEventListener('touchend', this.onDragEnd)
+      window.removeEventListener('contextmenu', this.onDragEnd)
+    },
+    mouseStart (e) {
+      this.startX = e.clientX / (500) * 100
       this.status = true
-      console.log(this.$refs.slider['clientWidth'])
-      console.log('鼠标按下')
+    },
+    mousedown (e) {
+      this.startValue = this.value
+      this.mouseStart(e)
+      window.addEventListener('mousemove', this.onDragging)
+      window.addEventListener('touchmove', this.onDragging)
+      window.addEventListener('mouseup', this.onDragEnd)
+      window.addEventListener('touchend', this.onDragEnd)
     },
     mousemove (e) {
       if (this.status) {
@@ -62,6 +86,14 @@ export default {
     },
     mouseover () {
       this.sattus = false
+    }
+  },
+  computed: {
+    currentPosition () {
+      return `${(this.value)}%`
+    },
+    moveButtons () {
+      return {left: this.currentPosition}
     }
   }
 }
