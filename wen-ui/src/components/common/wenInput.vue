@@ -19,7 +19,7 @@
 <template>
   <div class="input-main">
     <input type="text" ref="input">
-    <wen-suggest ref="test" v-if="false"/>
+    <wen-suggest ref="test"/>
   </div>
 </template>
 <script>
